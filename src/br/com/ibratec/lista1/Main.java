@@ -1,4 +1,4 @@
-package br.com.sistema.aplicacao;
+package br.com.ibratec.lista1;
 
 import javax.swing.JOptionPane;
 
@@ -11,22 +11,24 @@ import javax.swing.JOptionPane;
 public class Main {
 
 	public static void main(String[] args) {
-		// Lista de execução
-		lista1(0.0, 0.9);
-		lista2();
-		lista3();
-		lista4();
-		lista5();
-		lista6();
-		lista7();
-		lista8();
-		lista9();
+		// // Lista de execução
+		// lista1(0.0, 0.9);
+		// lista2();
+		// lista3();
+		// lista4();
+		// lista5();
+		// lista6();
+		// lista7();
+		// lista8();
+		// lista9();
+
 	}
 
-//	Instrução if
-//	1. Escrever um programa que receba 2 números como parâmetros, realize e
-//	imprima a divisão do primeiro pelo segundo. OBS: Deve-se evitar divisão por
-//	zero.
+	// Instrução if
+	// 1. Escrever um programa que receba 2 números como parâmetros, realize e
+	// imprima a divisão do primeiro pelo segundo. OBS: Deve-se evitar divisão
+	// por
+	// zero.
 	public static void lista1(Double valor1, Double valor2) {
 		if (valor1 != 0) {
 			Double aux = valor1 / valor2;
@@ -36,8 +38,9 @@ public class Main {
 		}
 	}
 
-//	2. Escreva um programa que leia três números inteiros do teclado, e os imprima
-//	na tela em ordem ascendente.
+	// 2. Escreva um programa que leia três números inteiros do teclado, e os
+	// imprima
+	// na tela em ordem ascendente.
 	public static void lista2() {
 
 		int valor1 = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o 1 número: "));
@@ -53,9 +56,10 @@ public class Main {
 
 	}
 
-//		Operador ?:
-//		3. Escreva um programa que leia dois números inteiros do teclado, e os imprima
-//		na tela em ordem ascendente.
+	// Operador ?:
+	// 3. Escreva um programa que leia dois números inteiros do teclado, e os
+	// imprima
+	// na tela em ordem ascendente.
 	public static void lista3() {
 
 		int valor1 = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o 1 número: "));
@@ -68,8 +72,9 @@ public class Main {
 
 	}
 
-//	4. Escreva um programa que determina o valor absoluto de um número inteiro
-//	lido do teclado.
+	// 4. Escreva um programa que determina o valor absoluto de um número
+	// inteiro
+	// lido do teclado.
 	public static void lista4() {
 
 		int valor1 = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite um número: "));
@@ -82,9 +87,10 @@ public class Main {
 
 	}
 
-//	Instrução switch
-//	5. Escrever um programa que receba 2 números e um caractere operador (+, -, *,
-//	/), realize a operação determinada e imprima na tela o resultado.
+	// Instrução switch
+	// 5. Escrever um programa que receba 2 números e um caractere operador (+,
+	// -, *,
+	// /), realize a operação determinada e imprima na tela o resultado.
 	public static void lista5() {
 
 		int valor1 = 0;
@@ -116,9 +122,9 @@ public class Main {
 
 	}
 
-//	Instrução for
-//	6. Escreva um programa que imprima os números pares entre 1 e 100.
-//	Instrução while
+	// Instrução for
+	// 6. Escreva um programa que imprima os números pares entre 1 e 100.
+	// Instrução while
 	public static void lista6() {
 
 		for (int i = 0; i < 100; i++) {
@@ -129,8 +135,8 @@ public class Main {
 
 	}
 
-//	7. Escreva um programa que coloque os números de 1 a 100 na tela na ordem
-//	inversa (começando em 100 e terminando em 1).
+	// 7. Escreva um programa que coloque os números de 1 a 100 na tela na ordem
+	// inversa (começando em 100 e terminando em 1).
 	public static void lista7() {
 
 		int valor1 = 100;
@@ -141,9 +147,9 @@ public class Main {
 
 	}
 
-//		Instrução do – while
-//		8. Escreva um programa que lê números do teclado enquanto esses números
-//		são menores que 10.
+	// Instrução do – while
+	// 8. Escreva um programa que lê números do teclado enquanto esses números
+	// são menores que 10.
 	public static void lista8() {
 
 		int valor = 0;
@@ -154,22 +160,19 @@ public class Main {
 
 	}
 
-//	9. Escreva um programa que testa a capacidade de adivinhar uma letra. Supondo
-//	que a letra ‘secreta’ seja a letra ‘A’, o programa deve ao final informar a
-//	quantidade de tentativas do usuário até acertar a letra.
+	// 9. Escreva um programa que testa a capacidade de adivinhar uma letra.
+	// Supondo
+	// que a letra ‘secreta’ seja a letra ‘A’, o programa deve ao final informar
+	// a
+	// quantidade de tentativas do usuário até acertar a letra.
 	public static void lista9() {
+		String letra;
 		int contador = 0;
 		do {
-			String letra = JOptionPane.showInputDialog(null, "Digite uma letra: ");
-			System.out.println(letra);
-			if (letra == "a") {
-				contador = 40;
-			} else {
-				contador++;
-			}
-		} while (contador < 40);
+			letra = JOptionPane.showInputDialog(null, "Digite uma letra: ");
+			contador++;
+		} while (!(letra.contains("a")));
 		System.out.println("Parabéns! Você acertou");
 		System.out.println("Tentativas :" + contador);
 	}
-
 }
