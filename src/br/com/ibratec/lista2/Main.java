@@ -32,7 +32,7 @@ public class Main {
 		// lista19();//ok
 		// lista20();
 		// lista21();//ok
-		// lista22();
+		 lista22();
 		// lista23(); //ok, mas perguntar
 		// lista24(); //ok
 		// exercicio1();//ok
