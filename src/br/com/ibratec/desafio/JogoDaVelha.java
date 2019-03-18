@@ -3,9 +3,18 @@ package br.com.ibratec.desafio;
 public class JogoDaVelha {
 
 	private int[][] gradeDoJogo = new int[3][3];
+	private String[][] armazenaGradeDoJogo = new String[3][3];
 
 	public JogoDaVelha() {
 
+	}
+
+	public String[][] getArmazenaGradeDoJogo() {
+		return armazenaGradeDoJogo;
+	}
+
+	public void setArmazenaGradeDoJogo(String[][] armazenaGradeDoJogo) {
+		this.armazenaGradeDoJogo = armazenaGradeDoJogo;
 	}
 
 	public int[][] getGradeDoJogo() {
@@ -22,9 +31,7 @@ public class JogoDaVelha {
 				if (posicaoX == i && posicaoY == j) {
 					this.gradeDoJogo[i][j] = simbolo;
 				}
-				System.out.print(gradeDoJogo[i][j] + " ");
 			}
-			System.out.println();
 		}
 	}
 
@@ -65,6 +72,53 @@ public class JogoDaVelha {
 			return 1;
 
 		return 0;
+	}
+
+	public int verificaVez(int numero) {
+
+		if (numero % 2 == 0) {
+			int jogador1 = 1;
+			return jogador1;
+		} else {
+			int jogador2 = -1;
+			return jogador2;
+		}
+
+	}
+
+	public String verificaCampeao() {
+		if (verificaLinhas() == 0 && verificaColunas() == 0 && verificaDiagonais() == 0) {
+			return "Status - Empate";
+		} else if (verificaLinhas() == 1 && verificaColunas() == 1 && verificaDiagonais() == 1) {
+			return "Jogador -1 é o vencedor";
+		} else {
+			return "Jogador 1 é o vencedor";
+		}
+
+	}
+
+	public boolean passaVez(int x, int y) {
+		if (x > 2 && y < 2 || gradeDoJogo[x][y] != 0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	
+	public void gradeCompleta() {
+		for (int i = 0; i < gradeDoJogo.length; i++) {
+			for (int j = 0; j < gradeDoJogo[i].length; j++) {
+				if (gradeDoJogo[i][j] == -1) {
+					armazenaGradeDoJogo[i][j] = " 0 ";
+				}else if(gradeDoJogo[i][j] == 1) {
+					armazenaGradeDoJogo[i][j] = " x ";
+				}else {
+					armazenaGradeDoJogo[i][j] = " - ";
+				}
+				System.out.print(armazenaGradeDoJogo[i][j] + " ");
+			}
+			System.out.println();
+		}
 	}
 
 }

@@ -2,8 +2,8 @@ package br.com.ibratec.desafio;
 
 import java.util.Scanner;
 
-public class Jogo extends JogoDaVelha {
-
+public class Jogo extends JogoDaVelha{
+	
 	private int posicaoX;
 	private int posicaoY;
 	public Scanner entrada = new Scanner(System.in);
@@ -29,45 +29,43 @@ public class Jogo extends JogoDaVelha {
 	}
 
 	public void jogar() {
+		
 		boolean continuar = true;
+		
 		while (continuar) {
-
 			printMenu();
-			int opcaoMenuPrincipal = entrada.nextInt();
-
-			switch (opcaoMenuPrincipal) {
-
+			
+			int opcao = entrada.nextInt();
+			switch (opcao) {
+			
 			case 1:
 				int jogando = 0;
 				while (jogando < 9) {
 
+					System.out.println("****************");
 					System.out.println("Digite Posicão X");
 					int posicaoX = this.entrada.nextInt();
 
 					System.out.println("Digite Posicão Y");
 					int posicaoY = this.entrada.nextInt();
+					
+					System.out.println("****************");
 
-					if (jogando % 2 == 0) {
-						int vezj = 1;
-						exibirGradeInt(posicaoX, posicaoY, vezj);
-					} else {
-						int vezj2 = -1;
-						exibirGradeInt(posicaoX, posicaoY, vezj2);
-					}
+					int vez = verificaVez(jogando);			
+					
+					if (passaVez(posicaoX, posicaoY) == false) {
+						jogando = 10;
+						continuar = false;
+						System.out.println("Opção Inválida");
+						System.out.println("Fim de Jogo");
+					}					
+					exibirGradeInt(posicaoX, posicaoY, vez);
+					gradeCompleta();
 					verificaLinhas();
 					verificaDiagonais();
 					verificaColunas();
-
-					if (verificaLinhas() == 0 && verificaColunas() == 0 && verificaDiagonais() == 0) {
-						System.out.println("Empate");
-					} else if (verificaLinhas() == 1 && verificaColunas() == 1 && verificaDiagonais() == 1) {
-						System.out.println("Jogador 1 é o vencedor");
-						jogando = 10;
-					} else {
-						System.out.println("Jogador -1 é o vencedor");
-						jogando = 10;
-					}
-
+					System.out.println(verificaCampeao());
+					System.out.println();
 					jogando++;
 				}
 				break;
